@@ -44,12 +44,22 @@ export default function App() {
       <Switch>
         {/* These are first-level routes */}
         {routes.map(route => (
-          <Route exact path={route.path} component={route.component} />
+          <Route
+            key={route.title}
+            exact
+            path={route.path}
+            component={route.component}
+          />
         ))}
         {/* These are second-level routes */}
         {routes.map(route =>
           route.list.map(item => (
-            <Route exact path={item.path} component={item.component} />
+            <Route
+              exact
+              key={item.title}
+              path={item.path}
+              component={item.component}
+            />
           )),
         )}
         {/* <Route path="/features" component={FeaturePage} /> */}
