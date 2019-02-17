@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{b74a65a6fc6394d57886:function(a,n,o){"use strict";var c=o("0b3cb19af78752326f59").c.h2.withConfig({displayName:"H2",componentId:"egphza-0"})(["font-size:1.5em;"]);n.a=c}}]);
