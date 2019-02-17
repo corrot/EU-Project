@@ -1,30 +1,69 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { Menu, Row, Col } from 'antd';
 
 import A from './A';
-import Img from './Img';
-import NavBar from './NavBar';
+import Brand from './Brand';
+// import NavBar from './NavBar';
+import Logo from './logo.png';
 import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
-import messages from './messages';
-
+import { routes } from '../../utils/routes';
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      current: 'mail',
+    };
+  }
+
+  handleClick = e => {
+    this.setState({
+      current: e.key,
+    });
+  };
+
   render() {
     return (
-      <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
-        </A>
-        <NavBar>
-          <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
-          </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
-          </HeaderLink>
-        </NavBar>
-      </div>
+      <>
+        <Row>
+          <Col span={12}>
+            <A href="/">
+              <Brand src={Logo} alt="EUCA - Logo" />
+            </A>
+          </Col>
+        </Row>
+        <Menu
+          onClick={this.handleClick}
+          selectedKeys={[this.state.current]}
+          mode="horizontal"
+        >
+          {routes.map(navItem => (
+            <Menu.SubMenu
+              key={navItem.title}
+              title={
+                <span className="submenu-title-wrapper">
+                  {/* <Icon type="setting" /> */}
+                  <HeaderLink to={navItem.path}>
+                    {navItem.title}
+                    {/* <FormattedMessage {...messages[title]} /> */}
+                  </HeaderLink>
+                </span>
+              }
+            >
+              {navItem.list.map(listItem => (
+                <Menu.Item key={listItem.title}>
+                  <HeaderLink to={listItem.path}>
+                    {listItem.title}
+                    {/* <FormattedMessage {...messages[title]} /> */}
+                  </HeaderLink>
+                  {/* <A href={listItem.path}>{listItem.title}</A> */}
+                </Menu.Item>
+              ))}
+            </Menu.SubMenu>
+          ))}
+        </Menu>
+      </>
     );
   }
 }

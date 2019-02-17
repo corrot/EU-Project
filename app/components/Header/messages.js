@@ -12,8 +12,32 @@ export default defineMessages({
     id: `${scope}.home`,
     defaultMessage: 'Home',
   },
-  features: {
-    id: `${scope}.features`,
-    defaultMessage: 'Features',
+  about: {
+    id: `${scope}.about`,
+    defaultMessage: 'About Us',
   },
+  legislation: {
+    id: `${scope}.legislation`,
+    defaultMessage: 'Legislation',
+  },
+  decisions: {
+    id: `${scope}.decisions`,
+    defaultMessage: 'Decisions',
+  },
+  public: {
+    id: `${scope}.public`,
+    defaultMessage: 'Public Info',
+  },
+  media: {
+    id: `${scope}.media`,
+    defaultMessage: 'Media',
+  },
+  contact: {
+    id: `${scope}.contact`,
+    defaultMessage: 'Contact',
+  },
+  // features: {
+  //   id: `${scope}.features`,
+  //   defaultMessage: 'Features',
+  // },
 });

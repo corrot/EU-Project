@@ -19,6 +19,8 @@ import {
   makeSelectLoading,
   makeSelectError,
 } from 'containers/App/selectors';
+import { Carousel } from 'antd';
+
 import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
 import AtPrefix from './AtPrefix';
@@ -62,7 +64,13 @@ export class HomePage extends React.PureComponent {
           />
         </Helmet>
         <div>
-          <CenteredSection>
+          <Carousel autoplay>
+            <div><h3>1</h3></div>
+            <div><h3>2</h3></div>
+            <div><h3>3</h3></div>
+            <div><h3>4</h3></div>
+          </Carousel>
+          {/* <CenteredSection>
             <H2>
               <FormattedMessage {...messages.startProjectHeader} />
             </H2>
@@ -90,7 +98,7 @@ export class HomePage extends React.PureComponent {
               </label>
             </Form>
             <ReposList {...reposListProps} />
-          </Section>
+          </Section> */}
         </div>
       </article>
     );

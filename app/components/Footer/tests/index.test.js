@@ -26,7 +26,9 @@ describe('<Footer />', () => {
           <FormattedMessage
             {...messages.authorMessage}
             values={{
-              author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
+              author: (
+                <A href="https://github.com/corrot">Giorgi Koroshinadze</A>
+              ),
             }}
           />
         </section>,
