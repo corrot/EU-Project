@@ -1,11 +1,14 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Menu, Row, Col } from 'antd';
 
+import LocaleToggle from 'containers/LocaleToggle';
 import A from './A';
 import Brand from './Brand';
 // import NavBar from './NavBar';
 import Logo from './logo.png';
 import HeaderLink from './HeaderLink';
+import messages from './messages';
 import { routes } from '../../utils/routes';
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
@@ -27,10 +30,20 @@ class Header extends React.Component {
     return (
       <>
         <Row>
-          <Col span={12}>
+          <Col span={24}>
             <A href="/">
               <Brand src={Logo} alt="EUCA - Logo" />
             </A>
+            <div
+              style={{
+                position: 'absolute',
+                right: 0,
+                top: '50%',
+                transform: 'translateY(-50%)',
+              }}
+            >
+              <LocaleToggle />
+            </div>
           </Col>
         </Row>
         <Menu
@@ -45,8 +58,7 @@ class Header extends React.Component {
                 <span className="submenu-title-wrapper">
                   {/* <Icon type="setting" /> */}
                   <HeaderLink to={navItem.path}>
-                    {navItem.title}
-                    {/* <FormattedMessage {...messages[title]} /> */}
+                    <FormattedMessage {...messages[navItem.localeKey]} />
                   </HeaderLink>
                 </span>
               }
@@ -54,8 +66,7 @@ class Header extends React.Component {
               {navItem.list.map(listItem => (
                 <Menu.Item key={listItem.title}>
                   <HeaderLink to={listItem.path}>
-                    {listItem.title}
-                    {/* <FormattedMessage {...messages[title]} /> */}
+                    <FormattedMessage {...messages[listItem.localeKey]} />
                   </HeaderLink>
                   {/* <A href={listItem.path}>{listItem.title}</A> */}
                 </Menu.Item>

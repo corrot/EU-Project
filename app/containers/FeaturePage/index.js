@@ -10,9 +10,6 @@ import { FormattedMessage } from 'react-intl';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
 import messages from './messages';
-import List from './List';
-import ListItem from './ListItem';
-import ListItemTitle from './ListItemTitle';
 
 export default class FeaturePage extends React.Component {
   // Since state and props are static,

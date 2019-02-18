@@ -16,4 +16,8 @@ export default defineMessages({
     id: `${scope}.de`,
     defaultMessage: 'de',
   },
+  ka: {
+    id: `${scope}.ka`,
+    defaultMessage: 'ka',
+  },
 });
