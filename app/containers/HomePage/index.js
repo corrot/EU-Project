@@ -27,6 +27,8 @@ import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
+import Images from './sliderImages/images';
+
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
   /**
@@ -57,18 +59,31 @@ export class HomePage extends React.PureComponent {
         </Helmet>
         <div>
           <Carousel autoplay>
-            <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div>
+            {Images.map(image => (
+              <>
+                <div
+                  style={{
+                    'background-image': `url(${image.path})`,
+                    height: '400px',
+                    width: '100%',
+                    'background-size': 'cover',
+                  }}
+                />
+                <h3
+                  style={{
+                    position: 'relative',
+                    color: '#fff',
+                    'text-shadow': '1px 1px 2px rgba(0,0,0,.6)',
+                    top: '-60px',
+                    right: '20%',
+                    'font-size': '24px',
+                    'font-weight': 'bold',
+                  }}
+                >
+                  image {image.id}
+                </h3>
+              </>
+            ))}
           </Carousel>
           {/* <CenteredSection>
             <H2>
