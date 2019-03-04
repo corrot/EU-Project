@@ -120,7 +120,7 @@ export const routes = [
     ],
   },
   {
-    title: 'Public',
+    title: 'Public Information',
     path: '/public',
     localeKey: 'public',
     component: FeaturePage,
@@ -181,6 +181,12 @@ export const routes = [
     localeKey: 'media',
     component: FeaturePage,
     list: [
+      {
+        title: 'Announcement',
+        path: '/announcement',
+        localeKey: 'announcement',
+        component: FeaturePage,
+      },
       {
         title: 'Press releases',
         path: '/press-releases',
