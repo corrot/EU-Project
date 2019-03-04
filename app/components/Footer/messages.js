@@ -12,6 +12,10 @@ export default defineMessages({
     id: `${scope}.license.message`,
     defaultMessage: 'This project is licensed under the MIT license.',
   },
+  logoMessage: {
+    id: `${scope}.logo.message`,
+    defaultMessage: 'Competition Agency of Georgia',
+  },
   authorMessage: {
     id: `${scope}.author.message`,
     defaultMessage: `

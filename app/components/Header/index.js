@@ -1,8 +1,9 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Menu, Row, Col } from 'antd';
+import { Menu, Row, Col, Input, Icon } from 'antd';
 
 import LocaleToggle from 'containers/LocaleToggle';
+import { relative } from 'path';
 import A from './A';
 import Brand from './Brand';
 // import NavBar from './NavBar';
@@ -27,12 +28,31 @@ class Header extends React.Component {
   };
 
   render() {
+    const { Search } = Input;
+
+    const social = [
+      { id: 'facebook', path: '/' },
+      { id: 'twitter', path: '/' },
+      { id: 'youtube', path: '/' },
+    ];
+
     return (
       <>
         <Row>
           <Col span={24}>
             <A href="/">
               <Brand src={Logo} alt="EUCA - Logo" />
+              <h2
+                style={{
+                  display: 'inline-block',
+                  position: 'relative',
+                  left: '10px',
+                  fontWeight: 'bold',
+                  color: '#00005a',
+                }}
+              >
+                Competition Agency of Georgia
+              </h2>
             </A>
             <div
               style={{
@@ -42,7 +62,42 @@ class Header extends React.Component {
                 transform: 'translateY(-50%)',
               }}
             >
+              <div
+                style={{
+                  position: relative,
+                  right: 0,
+                  top: 0,
+                }}
+              >
+                <ul
+                  style={{
+                    position: 'relative',
+                    right: 0,
+                    display: 'inline-block',
+                    padding: 0,
+                  }}
+                >
+                  {social.map(o => (
+                    <li
+                      style={{
+                        float: 'left',
+                        listStyleType: 'none',
+                        marginLeft: '10px',
+                      }}
+                    >
+                      <a href={o.path} target="_blank">
+                        <Icon style={{ fontSize: '20px' }} type={o.id} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <LocaleToggle />
+              <Search
+                placeholder="Search..."
+                // onSearch={value => console.log(value)}
+                style={{ width: 160 }}
+              />
             </div>
           </Col>
         </Row>
