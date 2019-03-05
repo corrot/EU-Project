@@ -3,14 +3,16 @@ import { FormattedMessage } from 'react-intl';
 import { Menu, Row, Col, Input, Icon } from 'antd';
 
 import LocaleToggle from 'containers/LocaleToggle';
-import { relative } from 'path';
+// import { relative } from 'path';
 import A from './A';
 import Brand from './Brand';
 // import NavBar from './NavBar';
 import Logo from './logo.png';
 import HeaderLink from './HeaderLink';
+import { SocialContainer, SocialList, SocialItem } from './styled';
 import messages from './messages';
 import { routes } from '../../utils/routes';
+
 /* eslint-disable react/prefer-stateless-function */
 class Header extends React.Component {
   constructor(props) {
@@ -31,9 +33,9 @@ class Header extends React.Component {
     const { Search } = Input;
 
     const social = [
-      { id: 'facebook', path: '/' },
-      { id: 'twitter', path: '/' },
-      { id: 'youtube', path: '/' },
+      { id: 'facebook', path: 'https://facebook.com' },
+      { id: 'twitter', path: 'https://twitter.com' },
+      { id: 'youtube', path: 'https://youtube.com' },
     ];
 
     return (
@@ -62,42 +64,25 @@ class Header extends React.Component {
                 transform: 'translateY(-50%)',
               }}
             >
-              <div
-                style={{
-                  position: relative,
-                  right: 0,
-                  top: 0,
-                }}
-              >
-                <ul
-                  style={{
-                    position: 'relative',
-                    right: 0,
-                    display: 'inline-block',
-                    padding: 0,
-                  }}
-                >
-                  {social.map(o => (
-                    <li
-                      style={{
-                        float: 'left',
-                        listStyleType: 'none',
-                        marginLeft: '10px',
-                      }}
-                    >
-                      <a href={o.path} target="_blank">
-                        <Icon style={{ fontSize: '20px' }} type={o.id} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <LocaleToggle />
               <Search
                 placeholder="Search..."
                 // onSearch={value => console.log(value)}
-                style={{ width: 160 }}
+                style={{ width: 160, marginBottom: '20px' }}
               />
+              <SocialContainer>
+                <SocialList>
+                  {social.map(o => (
+                    <SocialItem>
+                      <A href={o.path} target="_blank">
+                        <Icon style={{ fontSize: '20px' }} type={o.id} />
+                      </A>
+                    </SocialItem>
+                  ))}
+                  <SocialItem>
+                    <LocaleToggle />
+                  </SocialItem>
+                </SocialList>
+              </SocialContainer>
             </div>
           </Col>
         </Row>

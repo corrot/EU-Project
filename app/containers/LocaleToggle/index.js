@@ -26,6 +26,7 @@ export class LocaleToggle extends React.PureComponent {
           values={appLocales}
           messages={messages}
           onToggle={this.props.onLocaleToggle}
+          image={this.props.image}
         />
       </Wrapper>
     );
@@ -35,6 +36,7 @@ export class LocaleToggle extends React.PureComponent {
 LocaleToggle.propTypes = {
   onLocaleToggle: PropTypes.func,
   locale: PropTypes.string,
+  image: PropTypes.string,
 };
 
 const mapStateToProps = createSelector(makeSelectLocale(), locale => ({

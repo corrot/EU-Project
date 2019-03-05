@@ -15,8 +15,14 @@ function Toggle(props) {
 
   // If we have items, render them
   if (props.values) {
+    console.log(props);
     content = props.values.map(value => (
-      <ToggleOption key={value} value={value} message={props.messages[value]} />
+      <ToggleOption
+        image={props.image}
+        key={value}
+        value={value}
+        message={props.messages[value]}
+      />
     ));
   }
 
@@ -32,6 +38,7 @@ Toggle.propTypes = {
   values: PropTypes.array,
   value: PropTypes.string,
   messages: PropTypes.object,
+  image: PropTypes.string,
 };
 
 export default Toggle;
