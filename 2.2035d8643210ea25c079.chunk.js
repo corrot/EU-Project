@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{c611ca373eec6f4e262d:function(n,c,e){"use strict";var o=e("0b3cb19af78752326f59").c.h1.withConfig({displayName:"H1",componentId:"tncdg6-0"})(["font-size:2em;margin-bottom:0.25em;"]);c.a=o}}]);
